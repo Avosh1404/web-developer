@@ -1,0 +1,89 @@
+@font-face {
+  font-family: "shabnam";
+  src: url("../img/Shabnam-FD.woff2");
+}
+.nav-toggle-label{
+  top: 100px;
+}
+body{
+  margin: 0px !important;
+  font-family: "shabnam";
+}
+.sit-header{
+  padding-top: 0px !important;
+  padding-bottom: 30px;
+  padding-block: 0px !important;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    /*========== پایه =========*/
+    *,*::before,*::after{
+      box-sizing:border-box;
+      
+    }
+    
+    :root{
+      --ink:#0f172a;
+       --brand:#0f172a;
+         --muted:#6b7280;
+      --radius:18px; --shadow:0 10px 26px rgba(0,0,0,.08);
+      --container:1280px; /* برای ۴ ستونه جا داشته باشه */
+    }
+     body{
+      margin: 0px;
+      color:var(--ink);
+      background:#fff;
+      line-height:1.6;
+      
+    }
+    .container{
+      max-width:var(--container);
+      margin-inline:auto;
+      padding-inline:16px
+    }
+    
+    /* ========== هدر صفحه (مطابق طرح) ========= */
+    header{margin-bottom:52px;}
+    .kicker{color:#2563eb;font-weight:800;margin:0}
+    .page-title{margin:6px 0 0;font-weight:900;letter-spacing:-.3px;color:var(--brand);font-size:clamp(28px,6vw,56px)}
+
+    /* ========== گرید خدمات؛ موبایل 1 → تبلت 2 → لپ‌تاپ 3 → دسکتاپ 4 ========= */
+    main{padding-block:24px 56px}
+    .services{display:grid;gap:24px;grid-template-columns:1fr}
+    @media(min-width:640px){ .services{grid-template-columns:repeat(2,minmax(0,1fr))} }   /* دو ستونه */
+    @media(min-width:960px){ .services{grid-template-columns:repeat(3,minmax(0,1fr))} }   /* سه ستونه */
+    @media(min-width:1280px){ .services{grid-template-columns:repeat(4,minmax(0,1fr))} }  /* چهار ستونه */
+
+    /* کارت خدمت */
+    .service-card{width: 90%; background-color: #fff;border-radius:calc(var(--radius) + 4px);box-shadow:var(--shadow);transition:transform .2s, box-shadow .2s}
+    .service-card:hover{transform:translateY(-2px);box-shadow:0 14px 36px rgba(0,0,0,.12)}
+    .service-media{display:block;width:100%;height: 300px; object-fit:cover}
+    .service-caption{margin:0;padding:14px 12px 18px;text-align:center;font-weight:800;font-size:clamp(14px,2.2vw,18px)}
+    /* نوار پایینی مثل موبایل */
+    .home-indicator{width:180px;height:6px;border-radius:999px;background:#c7c7c7;margin:44px auto 0}
+   

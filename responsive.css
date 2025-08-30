@@ -1,0 +1,69 @@
+
+/* responsive.css - قوانین واکنش‌گرا برای پروژه 3 */
+
+/* همه تصاویر و ویدیوها منعطف */
+img, video, svg {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* کانتینر عمومی */
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  box-sizing: border-box;
+  margin-top: 0px;
+}
+
+/* چینش فلکس عمومی */
+.row, .flex {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+/* ستون‌ها */
+.col {
+  flex: 1 1 0;
+  min-width: 0;
+}
+
+/* تیترها و متن */
+h1, h2, h3, p {
+  word-break: break-word;
+  hyphens: auto;
+}
+
+/* ناوبری */
+.navbar, nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+/* تبلت */
+@media (max-width: 1024px) {
+  body { font-size: 16px; }
+}
+
+/* موبایل متوسط */
+@media (max-width: 768px) {
+  .row, .flex { flex-direction: column; }
+  .navbar { flex-direction: column; gap: .5rem; }
+  .hero { flex-direction: column-reverse; text-align: center; }
+  .hero .col { width: 100%; }
+}
+
+/* موبایل کوچک */
+@media (max-width: 480px) {
+  body { font-size: 15px; line-height: 1.6; }
+  h1 { font-size: 1.5rem; }
+  h2 { font-size: 1.2rem; }
+  .btn { padding: .6rem 1rem; font-size: .95rem; }
+}

@@ -1,0 +1,539 @@
+:root {
+  --max-width: 1200px;
+  --nav-height: 80px;
+  --accent: #4850b5;
+  --accent-2: #6b5ce6;
+  --icon-bg: #2f49b8;
+  --muted: #6f6f6f;
+  --page-bg: #fbf6ea;
+  --text: #0f1724;
+  --glass-bg: rgba(255, 255, 255, 0.64);
+  --glass-border: rgba(255, 255, 255, 0.45);
+  --radius-lg: 14px;
+}
+
+* {
+  box-sizing: border-box;
+  /* font-family:'Courier New', Courier, monospace; */
+  margin: 0;
+  padding:0;
+  text-decoration: none;
+
+}
+
+html,
+body {
+  height: 100%
+}
+
+body {
+  margin: 0;
+  font-family: "Vazirmatn", system-ui, -apple-system, "Segoe UI", Roboto, Arial;
+  background: linear-gradient(180deg, #fbfaf9 0%, #f5f2ec 100%);
+  color: var(--text);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+.container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 20px
+}
+
+/* ===========================
+   site-topbar
+   =========================== */
+.site-topbar {
+  background: linear-gradient(180deg, #14172b 0%, #1b2340 100%);
+  color: #fff;
+  padding: 8px 0
+}
+
+.site-topbar .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px
+}
+
+.site-topbar__time {
+  opacity: .95;
+  font-size: 13px
+}
+
+.site-topbar__social {
+  display: flex;
+  gap: 10px;
+  align-items: center
+}
+
+.social-icon {
+  display: inline-grid;
+  place-items: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: linear-gradient(180deg, var(--icon-bg), var(--accent));
+  box-shadow: 0 8px 20px rgba(47, 73, 184, 0.18);
+  text-decoration: none;
+  color: #fff;
+  transition: transform .18s ease, box-shadow .18s ease
+}
+
+.social-icon svg {
+  width: 18px;
+  height: 18px;
+  fill: currentColor
+}
+
+.social-icon:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 14px 36px rgba(47, 73, 184, 0.22)
+}
+
+/* ===========================
+   site-header
+   =========================== */
+.site-header {
+  background: #fff;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.04);
+  position: sticky;
+  top: 0;
+  z-index: 60
+}
+
+.site-header__row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: var(--nav-height);
+  gap: 16px
+}
+
+.site-logo {
+  font-weight: 800;
+  letter-spacing: .4px
+}
+
+.logo-section {
+
+  display: flex;
+
+
+gap: 8px;
+}
+
+.logo-name{
+color:#222;
+  font-size: 30px;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+
+.main-navigation {
+  display: flex;
+  align-items: center;
+  gap: 18px
+}
+
+.nav-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 28px;
+  align-items: center
+}
+
+.nav-list a {
+  color: var(--text);
+  font-weight: 600;
+  text-decoration: none;
+  white-space: nowrap;
+
+}
+
+/* nav toggle (checkbox hack) */
+.nav-toggle-input {
+  display: none
+}
+
+.nav-toggle-label {
+  display: none;
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 8px
+}
+
+.nav-toggle-icon {
+  width: 26px;
+  height: 2px;
+  background: #222;
+  display: block;
+  position: relative
+}
+
+.nav-toggle-icon::before,
+.nav-toggle-icon::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: #222;
+  display: block
+}
+
+.nav-toggle-icon::before {
+  top: -8px
+}
+
+.nav-toggle-icon::after {
+  bottom: -8px
+}
+
+/* support-contact */
+.support-contact {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 14px
+}
+
+.support-contact__meta {
+  display: flex;
+  flex-direction: column;
+  text-align: right
+}
+
+.support-contact__title {
+  font-weight: 700;
+}
+
+.support-contact__phone {
+  font-size: 13px;
+  color: var(--muted)
+}
+
+.support-contact__avatar {
+  display: inline-grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: linear-gradient(180deg, var(--icon-bg), var(--accent));
+  color: #fff;
+  box-shadow: 0 10px 26px rgba(47, 73, 184, 0.14)
+}
+
+.support-contact__avatar svg {
+  width: 20px;
+  height: 20px;
+  fill: currentColor
+}
+
+/* ===========================
+   hero-section
+   کامنت: والدِ هِرو با بک‌گراند کرمی (page-bg)
+   تصویر سمت چپ (grid-area:image) و کارت متن سمت راست (grid-area:content)
+   =========================== */
+.hero-section {
+  position: relative;
+  min-height: calc(100vh - var(--nav-height) - 20px);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-areas: "content image";
+  /* تصویر چپ، متن راست (صریح) */
+  gap: 28px;
+  align-items: center;
+  padding: 48px 0;
+  overflow: visible;
+background-color: #F2EAD8;
+/* width: 1200px;
+margin: auto; */
+}
+
+
+/* background-blobs موقعیت و انیمیشن */
+.background-blobs {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  overflow: visible
+}
+
+.blob {
+  position: absolute;
+  width: 600px;
+  height: 600px;
+  opacity: .22;
+  filter: blur(30px);
+  transform-origin: center center
+}
+
+.blob--large {
+  right: -6%;
+  top: 6%;
+  width: 520px;
+  height: 520px;
+  animation: blobFloat 18s infinite alternate ease-in-out
+}
+
+.blob--medium {
+  right: 6%;
+  top: 34%;
+  width: 420px;
+  height: 420px;
+  opacity: .18;
+  animation: blobFloat 22s infinite alternate-reverse ease-in-out
+}
+
+.blob--small {
+  right: -12%;
+  top: 58%;
+  width: 580px;
+  height: 580px;
+  opacity: .14;
+  animation: blobFloat 26s infinite alternate ease-in-out
+}
+
+@keyframes blobFloat {
+  0% {
+    transform: translateY(0) rotate(0) scale(1)
+  }
+
+  50% {
+    transform: translateY(-18px) rotate(6deg) scale(1.03)
+  }
+
+  100% {
+    transform: translateY(0) rotate(0) scale(1)
+  }
+}
+
+/* hero-image — اکنون سمت چپ */
+.hero-image {
+  z-index: 8;
+  grid-area: image;
+  width: 100%;
+  height: 68vh;
+  max-height: 880px;
+  position: relative;
+  overflow: hidden;
+  border-radius: 8px;
+  box-shadow: 0 26px 60px rgba(17, 22, 48, 0.08)
+}
+
+.hero-image__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transform: scale(1.02);
+}
+
+/* hero-card (glass) — اکنون سمت راست و متن کاملاً راست‌چین */
+.hero-card {
+  z-index: 10;
+  grid-area: content;
+  /* content سمت راست */
+  text-align: right;
+  padding: 58px 28px;
+  max-width: 720px;
+  margin-inline: auto;
+  background: linear-gradient(180deg, var(--glass-bg), rgba(255, 255, 255, 0.45));
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-lg);
+  box-shadow: 0 12px 40px rgba(18, 22, 45, 0.06);
+  backdrop-filter: blur(6px) saturate(120%);
+  transform: translateY(10px);
+  opacity: 0;
+  animation: cardIn .72s cubic-bezier(.2, .9, .2, 1) forwards .18s;
+}
+
+@keyframes cardIn {
+  to {
+    transform: none;
+    opacity: 1
+  }
+}
+
+/* متن داخل کارت */
+.hero-card__eyebrow {
+  display: inline-block;
+  color: var(--accent);
+  font-weight: 700;
+  margin-bottom: 10px;
+  font-size: 13px
+}
+
+.hero-card__title {
+  font-size: 56px;
+  line-height: 1.02;
+  margin: 6px 0 16px;
+  font-weight: 900;
+  color: var(--text);
+  width:700px
+}
+
+.hero-card__lead {
+  color: var(--muted);
+  font-size: 18px;
+  margin: 0 0 26px
+}
+
+/* action buttons */
+.hero-card__actions {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+  justify-content: flex-start
+}
+
+.cta-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 20px;
+  border-radius: 28px;
+  border: 0;
+  cursor: pointer;
+      font-size: 18px;
+  position: relative;
+  overflow: hidden;
+  text-decoration: none
+}
+
+.cta-button--primary {
+  background: linear-gradient(90deg, var(--accent), var(--accent-2));
+  color: #fff;
+  box-shadow: 0 10px 30px rgba(75, 80, 200, 0.18)
+}
+
+.cta-button--secondary {
+  background: transparent;
+  color: var(--text);
+  border: 1px solid rgba(16, 22, 40, 0.06)
+}
+
+.cta-button::after {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  transform: scale(0);
+  opacity: 0;
+  pointer-events: none
+}
+
+.cta-button:active::after {
+  width: 200px;
+  height: 200px;
+  background: rgba(255, 255, 255, 0.18);
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%) scale(1);
+  opacity: 1;
+  transition: opacity .4s ease
+}
+
+/* وقتی کاربر hover روی کل hero-section باشه تصویر کمی جابجا می‌شود (حس عمق) */
+.hero-section:hover .hero-image__img {
+  transform: translate(6px, -4px) scale(1.04)
+}
+
+/* ===========================
+   Responsive — موبایل
+   =========================== */
+@media (max-width:1024px) {
+  .hero-card__title {
+    font-size: 44px
+  }
+
+  .hero-image {
+    height: 56vh
+  }
+}
+
+@media (max-width:780px) {
+  .hero-section {
+    grid-template-columns: 1fr;
+    grid-template-areas: "content" "image";
+    padding: 26px 0
+  }
+
+  .hero-image {
+    height: 44vh;
+    border-radius: 6px;
+    order: 2
+  }
+
+  .hero-card {
+    order: 1;
+    padding: 18px 12px;
+    text-align: right
+  }
+
+  .background-blobs {
+    display: none
+  }
+
+  .nav-toggle-label {
+    display: inline-block
+  }
+
+  .nav-list {
+    position: absolute;
+    right: 0;
+    top: var(--nav-height);
+    background: #fff;
+    width: 100%;
+    max-height: 0;
+    overflow: hidden;
+    flex-direction: column;
+    gap: 0;
+    padding: 0 18px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.04);
+    transition: max-height .36s ease
+  }
+
+  .nav-toggle-input:checked~.main-navigation .nav-list {
+    max-height: 320px;
+    padding: 12px 18px
+  }
+
+  .nav-list a {
+    padding: 12px 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.03)
+  }
+
+  .nav-list li:last-child a {
+    border-bottom: 0
+  }
+}
+
+/* prefers-reduced-motion */
+@media (prefers-reduced-motion: reduce) {
+  .blob {
+    animation: none !important;
+    filter: none
+  }
+
+  .hero-image__img {
+    transition: none
+  }
+
+  * {
+    animation-duration: 0s !important;
+    animation-delay: 0s !important;
+    transition-duration: 0s !important;
+    transition-delay: 0s !important
+  }
+}
+
+
+  

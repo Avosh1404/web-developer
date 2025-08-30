@@ -1,0 +1,88 @@
+ /* Reset و استایل پایه */
+ * {
+    box-sizing: border-box;
+  }
+  body {
+    margin: 0;
+    font-family: "Vazirmatn", system-ui, -apple-system, "Segoe UI", Roboto, Arial;
+    background: #fff;
+    color: #111827; /* رنگ متن تیره */
+    line-height: 1.6;
+    direction: rtl; /* متن راست به چپ */
+    
+  }
+  .nav-toggle-label{
+    top: 86px !important;
+    right: 20px;
+  }
+  main {
+    max-width: 720px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+  }
+  /* سکشن معرفی شرکت */
+  .company-intro {
+    margin-bottom: 2.5rem;
+    padding-right: 20px;
+  }
+  .company-intro .subtitle {
+    color: #3b49cb; /* رنگ آبی ملایم */
+    font-size: 1.1rem;
+    font-weight: 500;
+    margin-bottom: 0.3rem;
+  }
+  .company-intro .title {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    line-height: 1.2;
+    color: #0e1626; /* تیره تر */
+  }
+  .company-intro .title .highlight {
+    display: block;
+  }
+  .company-intro .description {
+    font-size: 1rem;
+    color: #6b7280; /* خاکستری ملایم */
+    line-height: 1.6;
+  }
+  /* دکمه */
+  .btn-primary {
+    display: inline-block;
+    background-color: #3b49cb;
+    color: white;
+    font-size: 1.1rem;
+    font-weight: 600;
+    border: none;
+    border-radius: 1.5rem;
+    padding: 0.75rem 2rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    user-select: none;
+    text-align: center;
+    text-decoration: none;
+  }
+  .btn-primary:hover,
+  .btn-primary:focus {
+    background-color: #2e3aa5;
+    outline: none;
+  }
+  .botn1{
+    padding-right: 20px;
+  }
+
+  /* ریسپانسیو */
+  @media (max-width: 480px) {
+    .company-intro .title {
+      font-size: 1.5rem;
+    }
+    .company-intro .subtitle {
+      font-size: 1rem;
+    }
+    .btn-primary {
+      width: 100%;
+      padding: 1rem 0;
+      font-size: 1.2rem;
+      border-radius: 0.75rem;
+    }
+  }
